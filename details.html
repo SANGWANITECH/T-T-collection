@@ -65,7 +65,7 @@
         <img src="icons/left.png" class="left">
         <div class="first">
     <div class="pic">
-        <img src="products/zoom.png" alt="Product Image">
+        <img src="products/zoom.png" alt="Product Image" id="detail">
     </div>
        
         <h6 class="name">A-shaped gown</h6>
@@ -84,7 +84,7 @@
 
             <section class="user">
                   <button>contact us</button>
-                  <img src="icons/user.png">
+                  <img src="icons/user.png" id="chat2" class="chat">
             </section>
 <br>
             <p><i>Store number      :  </i>    <b>TT123</b></p>
@@ -103,7 +103,7 @@
             <hr> <br>
    <br>
             <section class="pay">
-                <button class="add">add to cart </button>
+                <button class="add" id="cart-button2">add to cart </button>
 
                 <button class="pay2"> pay immediately  </button>
             </section>
@@ -165,6 +165,24 @@
 
 
     </div>
+    <div id="chat-popup" class="chat-popup">
+        <div class="chat-header">
+            <p>Chat with Store-owner</p>
+            <span id="close-chat">&times;</span>
+        </div>
 
-        
+        <div class="chat-body">
+            <p class="bot-message">Hello! welcome to T & T collections. How can we help you?</p>
+            <div id="chat-messages"></div>
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="chat-input" placeholder="Type your message...">
+            <button id="send-message">Send</button>
+        </div>
+    </div>
+
+
+    
+
+     <script src="script.js"></script>   
 </body>
