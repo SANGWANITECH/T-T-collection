@@ -1,47 +1,65 @@
 document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("chat2").addEventListener("click", function () {
-        document.getElementById("chat-popup").style.display = "block";
-    });
 
-    document.getElementById("close-chat").addEventListener("click", function () {
-        document.getElementById("chat-popup").style.display = "none";
-    });
+    // Chat Popup
+    const chatBtn = document.getElementById("chat2");
+    const chatPopup = document.getElementById("chat-popup");
+    const closeChat = document.getElementById("close-chat");
+    const sendMessage = document.getElementById("send-message");
 
-    document.getElementById("send-message").addEventListener("click", function () {
-        let message = document.getElementById("chat-input").value;
-        if (message.trim() !== "") {
-            let chatMessages = document.getElementById("chat-messages");
-            let userMsg = document.createElement("p");
-            userMsg.textContent = "You: " + message;
-            chatMessages.appendChild(userMsg);
-            document.getElementById("chat-input").value = "";
+    if (chatBtn && chatPopup && closeChat) {
+        chatBtn.addEventListener("click", function () {
+            chatPopup.style.display = "block";
+        });
+
+        closeChat.addEventListener("click", function () {
+            chatPopup.style.display = "none";
+        });
+
+        if (sendMessage) {
+            sendMessage.addEventListener("click", function () {
+                let message = document.getElementById("chat-input").value;
+                if (message.trim() !== "") {
+                    let chatMessages = document.getElementById("chat-messages");
+                    let userMsg = document.createElement("p");
+                    userMsg.textContent = "You: " + message;
+                    chatMessages.appendChild(userMsg);
+                    document.getElementById("chat-input").value = "";
+                }
+            });
         }
-    });
+    }
 
+    // Login Modal
     const loginBtn = document.getElementById("loginBtn");
     const loginModal = document.getElementById("loginModal");
     const closeBtn = document.querySelector(".close");
 
-    loginBtn.addEventListener("click", () => {
-        loginModal.style.display = "flex";
-    });
+    if (loginBtn && loginModal && closeBtn) {
+        loginBtn.addEventListener("click", () => {
+            loginModal.style.display = "flex";
+        });
 
-    closeBtn.addEventListener("click", () => {
-        loginModal.style.display = "none";
-    });
-
-    window.addEventListener("click", (event) => {
-        if (event.target === loginModal) {
+        closeBtn.addEventListener("click", () => {
             loginModal.style.display = "none";
-        }
-    });
+        });
 
+        window.addEventListener("click", (event) => {
+            if (event.target === loginModal) {
+                loginModal.style.display = "none";
+            }
+        });
+    }
 
-    document.getElementById("search-btn").addEventListener("click", function () {
-        let query = document.getElementById("search-input").value;
-        alert("Searching for: " + query);
-    });
+    // Search
+    const searchBtn = document.getElementById("search-btn");
+    if (searchBtn) {
+        searchBtn.addEventListener("click", function () {
+            let query = document.getElementById("search-input").value;
+            alert("Searching for: " + query);
+        });
+    }
 
+    // Cart
     let cartCount = 0;
     const cartCounter = document.querySelector(".cart-count");
 
@@ -60,10 +78,14 @@ document.addEventListener("DOMContentLoaded", function () {
         };
     }
 
-    document.querySelector(".cart-btn").addEventListener("click", function () {
-        alert("Cart clicked! Total items: " + cartCount);
-    });
+    const cartBtn = document.querySelector(".cart-btn");
+    if (cartBtn) {
+        cartBtn.addEventListener("click", function () {
+            alert("Cart clicked! Total items: " + cartCount);
+        });
+    }
 
+    // Mobile Menu Toggle
     function toggleMenu() {
         const mobileMenu = document.querySelector(".mobile-menu");
         if (mobileMenu) {
@@ -71,13 +93,15 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    // "See More" Section
     const see = document.getElementById("see");
     const say2 = document.getElementById("say2");
-    
+
     if (see && say2) {
         see.onclick = function () {
             say2.style.display = "flex";
             this.style.display = "none";
         };
     }
+
 });
