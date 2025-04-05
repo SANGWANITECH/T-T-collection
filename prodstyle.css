@@ -240,7 +240,7 @@ body {
 
 .store {
     width: 100%;
-    height: 270vh;
+    height: fit-content;
     display: flex;
 }
 
@@ -254,10 +254,16 @@ hr {
 
 .allproduct {
     width: 80%;
-    height: 100vh;
-    background-color: white;
+    height: fit-content;
+    background-color: rgb(255, 255, 255);
     margin-top: 9px;
 }
+.price1 img{
+    width: 40px;
+    margin-bottom: 4%;
+
+}
+
 
 .allproduct h3 {
     color: #53519A;
@@ -267,7 +273,7 @@ hr {
 
 .secproduct1 {
     width: 94%;
-    height: fit-content;
+    height: 100%;
     display: flex;
 }
 
@@ -382,7 +388,7 @@ hr {
 }
 
 .vector {
-    height: 100px;
+    height: 200px;
 }
 
 .sort:hover {
@@ -588,15 +594,17 @@ hr {
 #loginModal {
     display: none; 
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+    top: 0%;
+    left: 0%;
+    width: 120%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5); 
     display: flex;
     align-items: center;
     justify-content: center;
     display: none;
+    padding-left: 20%;
+    padding-top: 10%;
 }
 
 #loginmodal input{

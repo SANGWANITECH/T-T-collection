@@ -185,114 +185,7 @@ const products = [
         size: ["small", "medium"],
         image: "product4"
     },
-    {
-        id: 9,
-        name: "Pink shirt",
-        gender: "female",
-        age: "children",
-        price: 35000,
-        size: ["small"],
-        image: "product1"
-    },
-    {
-        id: 10,
-        name: "Brown coat",
-        gender: "male",
-        age: "adult",
-        price: 120000,
-        size: ["medium", "large"],
-        image: "product2"
-    },
-    {
-        id: 11,
-        name: "Grey sweater",
-        gender: "female",
-        age: "adult",
-        price: 65000,
-        size: ["small", "medium"],
-        image: "product3"
-    },
-    {
-        id: 12,
-        name: "Blue cap",
-        gender: "male",
-        age: "children",
-        price: 25000,
-        size: ["small"],
-        image: "product4"
-    },
-    {
-        id: 13,
-        name: "Purple skirt",
-        gender: "female",
-        age: "adult",
-        price: 55000,
-        size: ["small", "medium"],
-        image: "product1"
-    },
-    {
-        id: 14,
-        name: "Orange t-shirt",
-        gender: "male",
-        age: "children",
-        price: 30000,
-        size: ["small", "medium"],
-        image: "product2"
-    },
-    {
-        id: 15,
-        name: "Black dress",
-        gender: "female",
-        age: "adult",
-        price: 90000,
-        size: ["small", "medium", "large"],
-        image: "product3"
-    },
-    {
-        id: 16,
-        name: "Navy blazer",
-        gender: "male",
-        age: "adult",
-        price: 110000,
-        size: ["medium", "large"],
-        image: "product4"
-    },
-    {
-        id: 17,
-        name: "Floral dress",
-        gender: "female",
-        age: "children",
-        price: 50000,
-        size: ["small"],
-        image: "product1"
-    },
-    {
-        id: 18,
-        name: "Beige pants",
-        gender: "male",
-        age: "adult",
-        price: 70000,
-        size: ["medium", "large"],
-        image: "product2"
-    },
-    {
-        id: 19,
-        name: "Striped shirt",
-        gender: "male",
-        age: "adult",
-        price: 60000,
-        size: ["small", "medium", "large"],
-        image: "product3"
-    },
-    {
-        id: 20,
-        name: "White dress",
-        gender: "female",
-        age: "adult",
-        price: 85000,
-        size: ["small", "medium"],
-        image: "product4"
-    }
+  
 ];
 
 // Variables for pagination
@@ -310,15 +203,19 @@ function displayProducts(page = 1) {
     const endIndex = startIndex + productsPerPage;
     const paginatedProducts = filteredProducts.slice(startIndex, endIndex);
     
-    // Create rows of products (4 products per row)
-    for (let i = 0; i < paginatedProducts.length; i += 4) {
-        const rowProducts = paginatedProducts.slice(i, i + 4);
+    // Get viewport width to determine products per row
+    const viewportWidth = window.innerWidth;
+    const productsPerRow = viewportWidth < 768 ? 2 : 4; // 2 products per row on mobile, 4 on desktop
+    
+    // Create rows of products based on viewport width
+    for (let i = 0; i < paginatedProducts.length; i += productsPerRow) {
+        const rowProducts = paginatedProducts.slice(i, i + productsPerRow);
         const row = document.createElement('section');
         row.className = 'secproduct1';
         
         rowProducts.forEach((product, index) => {
             const productDiv = document.createElement('div');
-            productDiv.className = `product${(index % 4) + 1} ${product.image}`;
+            productDiv.className = `product${(index % productsPerRow) + 1} ${product.image} product-item`;
             
             productDiv.innerHTML = `
                 <a href="details.html?id=${product.id}">
@@ -346,6 +243,89 @@ function displayProducts(page = 1) {
     // Update pagination
     updatePagination();
 }
+
+function handleResponsiveLayout() {
+    const viewportWidth = window.innerWidth;
+    const storeContainer = document.querySelector('.store');
+    const filterSection = document.querySelector('.filter');
+    const allProductSection = document.querySelector('.allproduct');
+    
+    if (viewportWidth < 768) {
+        // Mobile layout - Filter on top
+        storeContainer.style.flexDirection = 'column';
+        filterSection.style.width = '100%';
+        allProductSection.style.width = '100%';
+        
+        // Make filter collapsible on mobile
+        const filterToggle = document.createElement('button');
+        if (!document.querySelector('#filter-toggle')) {
+            filterToggle.id = 'filter-toggle';
+            filterToggle.textContent = 'Show/Hide Filters';
+            filterToggle.className = 'filter-toggle-btn';
+            
+            // Insert the button before the filter content
+            const filterTitle = document.querySelector('.fi');
+            if (filterTitle && filterTitle.parentNode) {
+                filterTitle.parentNode.insertBefore(filterToggle, filterTitle);
+            }
+            
+            // Toggle filter visibility
+            const filterContent = document.querySelector('.filter section');
+            if (filterContent) {
+                filterContent.style.display = 'none'; // Initially hidden on mobile
+                
+                filterToggle.addEventListener('click', function() {
+                    filterContent.style.display = 
+                        filterContent.style.display === 'none' ? 'block' : 'none';
+                });
+            }
+        }
+        
+        // Make products display 2 per row
+        document.querySelectorAll('.secproduct1').forEach(row => {
+            row.style.display = 'flex';
+            row.style.flexWrap = 'wrap';
+            row.style.gap = '10px';
+            row.style.justifyContent = 'space-between';
+        });
+        
+        document.querySelectorAll('.product-item').forEach(product => {
+            product.style.width = 'calc(50% - 5px)'; // 2 products per row with a small gap
+            product.style.marginBottom = '15px';
+        });
+    } else {
+        // Desktop layout - Filter on side
+        storeContainer.style.flexDirection = 'row';
+        filterSection.style.width = '25%';
+        allProductSection.style.width = '75%';
+        
+        // Remove mobile-only elements
+        const filterToggle = document.querySelector('#filter-toggle');
+        if (filterToggle) {
+            filterToggle.remove();
+        }
+        
+        // Show filter content in desktop view
+        const filterContent = document.querySelector('.filter section');
+        if (filterContent) {
+            filterContent.style.display = 'block';
+        }
+        
+        // Reset product layout for desktop
+        document.querySelectorAll('.secproduct1').forEach(row => {
+            row.style.display = '';
+            row.style.flexWrap = '';
+            row.style.gap = '';
+            row.style.justifyContent = '';
+        });
+        
+        document.querySelectorAll('.product-item').forEach(product => {
+            product.style.width = '';
+            product.style.marginBottom = '';
+        });
+    }
+}
+
 
 // Function to update pagination
 function updatePagination() {
@@ -558,17 +538,19 @@ function initLoginModal() {
         }
     }
     
-    // Form log in
+    // Form submission
     const form = modal.querySelector('form');
     form.addEventListener('submit', function(e) {
         e.preventDefault();
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
-      
+        
+        // Simple check (in real application, this would be server-side)
         if (username === 'admin' && password === 'admin123') {
             alert('Login successful!');
             modal.style.display = "none";
-           
+            // Redirect to admin page or show admin controls
+            // window.location.href = 'admin.html';
         } else {
             alert('Invalid login credentials');
         }
@@ -582,5 +564,9 @@ document.addEventListener('DOMContentLoaded', function() {
     initLoginModal();
 });
 
-
-
+function toggleMenu() {
+    const mobileMenu = document.querySelector('.mobile-menu');
+    if (mobileMenu) {
+        mobileMenu.classList.toggle('show');
+    }
+}
