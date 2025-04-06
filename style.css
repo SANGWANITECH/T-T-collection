@@ -1166,7 +1166,7 @@ display: none;
  
     .div1 {
         width: 100%;
-        height: fit-content;
+        height: 46vh;
         background-image: url(products/back.png);
         background-position: center;
         background-size: cover;
