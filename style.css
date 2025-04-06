@@ -5,10 +5,16 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+html, body{
+    overflow-x: hidden;
+}
+
 body {
     font-family: 'Inter', sans-serif;
-    overflow-x: hidden;
+    
     width: 100%;
+    height: fit-content;
+    margin: 0px;
 }
 
 .nav1 {
@@ -328,7 +334,7 @@ body {
     background-color: white;
     border-radius: 6px;
     justify-items: center;
-    box-shadow: 1px 1px 1px 1px rgba(9, 20, 122, 0.37);
+    box-shadow: 0px 0px 4px 1px rgba(9, 20, 122, 0.253);
 }
 
 .store {
@@ -481,7 +487,7 @@ hr {
 .product2,
 .product3,
 .product4 {
-    box-shadow: 2px 1px 3px 2px rgba(7, 10, 207, 0.247);
+    box-shadow: 0px 0px 3px 1px rgba(7, 10, 207, 0.247);
     margin: 5px;
 }
 
@@ -533,6 +539,9 @@ hr {
     justify-content: space-between;
 }
 
+.sort{
+    display: none;
+}
 .numbers {
     display: flex;
     justify-content: space-between;
@@ -564,7 +573,7 @@ hr {
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 1px;
-    position: right;
+
     margin-top: 3%;
 
 }
@@ -589,7 +598,7 @@ hr {
     width: 70%;
     margin-left: 15%;
     height: 350px;
-    box-shadow: 1px 1px 1px 1px rgb(137, 43, 226);
+    box-shadow: 0px 0px 2px 1px rgba(137, 43, 226, 0.288);
     background-color: rgba(245, 245, 245, 0.158);
     border-radius: 10px;
     margin-top: 20px;
@@ -667,7 +676,7 @@ hr {
     padding: 10px;
     margin: 10px;
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(83, 81, 154, 0.3);
+    box-shadow: 0px 0px 4px 2px rgba(83, 81, 154, 0.3);
 }
 
 .say p {
@@ -691,6 +700,13 @@ display: none;
     border-radius: 50px;
     padding: -10px;
     margin: 2px;
+}
+.lis{
+    display: block;
+}
+
+.say div{
+    height: fit-content;
 }
 
 .person1 div {
@@ -1082,16 +1098,16 @@ display: none;
     }
 }
 
-@media (max-width: 768px) { /* Adjusted to a more common breakpoint */
+@media (max-width: 768px) { 
     .nav1 {
         padding: 15px 20px;
     }
     .ul1, .ul2 {
-        display: none; /* Hide menus */
+        display: none; 
     }
     
     .menu-icon {
-        display: block; /* Show hamburger */
+        display: block; 
         cursor: pointer;
     }
     .label1 img {
@@ -1106,7 +1122,7 @@ display: none;
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 520px) {
     .hero, .herotext {
         margin-left: 15px;
         max-width: 90%;
@@ -1120,10 +1136,22 @@ display: none;
         margin-right: 10%;
         width: 4px;
     }
+    .allproduct {
+       margin-left: 11%;
+    }
+
+    .allproduct div{
+        width: 90%;
+    
+    }
+
     .label1 img {
-        height: 30px;
-        margin-left: 10%;
-        width: 130px;
+        height: 33px;
+        margin-left: 13%;
+        width: 135px;
+    }
+    .label1{
+        margin-left: 3;
     }
  
     .div1 {
@@ -1139,21 +1167,50 @@ display: none;
         align-items: flex-start;
         
     }
+    
+    .do {
+        padding: 20px;
+        text-align: center;
+        font-size: 30px;
+        font-weight: 700;
+        color: #4a4890;
+        margin-top: -30px;
+    }
 
     .hero {
         
         max-width: 90%;
-        margin-top: 7px;
+        margin-top: -7px;
         padding: 5px;
+        padding-bottom: 3%;
         margin-left: 5.5%;
     }
     
     .herotext {
-    
+        
         max-width: 100%;
         padding: 5px;
-        height: 35vh;
+        padding-bottom: 1px;
+
+        
     }
+    .nav1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px 10px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.062);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    height: 50px;
+}
+
+
+
+
     .button2{
        width: 66%;
        margin-left: 7%;
@@ -1180,9 +1237,6 @@ display: none;
 
 
 
-/* Keep existing CSS styles, and add these responsive styles at the end */
-
-/* Products Container */
 
 @media (max-width: 992px) {
     #products-container {
@@ -1204,11 +1258,22 @@ display: none;
         flex-direction: column;
         height: auto;
     } 
+
+ 
+    .toview{
+        margin-right: 60%;
+    }
     
     .filter {
-        width: 100%;
+        width: 80%;
         height: auto;
         margin-bottom: 20px;
+        margin-left: 10.5%;
+
+    }
+    
+    .filter section {
+        padding-bottom: 5%;
     }
     
     .allproduct {
@@ -1241,10 +1306,28 @@ display: none;
     }
     
     .faq1, .faq2 {
-        width: 90%;
-        margin-left: 5%;
+        width: 80%;
+        margin-left: 10%;
     }
+    .faq1 div {
+        width: 80%;
+        margin-left: 10%;
+        height: 13%;
+        background-color: white;
+        padding: 20px;
+        margin-top: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 4px 1px rgba(36, 36, 105, 0.164);
+    }
+
+    .faq2{
+        margin-top: 5%;
+        width: 80%;
+        margin-left: 10%;
+        margin-bottom: 10%;
     
+    }
+
     /* Footer */
     .mmm {
         flex-wrap: wrap;
@@ -1253,11 +1336,11 @@ display: none;
     
     .footer {
         height: auto;
-        padding-bottom: 20px;
+        padding-bottom: 1px;
     }
+    
 }
-
-@media (max-width: 576px) {
+@media (max-width: 760px) {
     /* For mobile phones */
     .nav1 {
         padding: 10px;
@@ -1270,9 +1353,14 @@ display: none;
    
     /* What we do section */
     .doo {
-        width: 95%;
-        margin-left: 2.5%;
+        width: 80%;
+        margin-left: 10%;
         height: auto;
+
+    }
+
+    .doo hr{
+        display: none;
     }
     
     .do1 {
@@ -1320,7 +1408,7 @@ display: none;
 }
 
 /* Enhanced mobile navigation */
-@media (max-width: 768px) {
+@media (max-width: 820px) {
     .mobile-menu.show {
         display: block;
         width: 100%;
@@ -1337,6 +1425,34 @@ display: none;
         padding: 15px 0;
         border-bottom: 1px solid #eee;
     }
+    .toview{
+        width: 100px;
+        height: 35px;
+        background-color: #53519A;
+        color: white;
+        border-radius: 10px;
+        margin-left: 28%;
+        border: none;
+        font-size: 10px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    
+        margin-top: 3%;
+    
+    }
+
+    .allproduct {
+        margin-left: 11%;
+     }
+ 
+     .allproduct div{
+         width: 90%;
+     
+     }
+ 
    
 }
 

@@ -188,7 +188,7 @@ const products = [
   
 ];
 
-// Variables for pagination
+
 const productsPerPage = 12;
 let currentPage = 1;
 let filteredProducts = [...products];
@@ -198,15 +198,15 @@ function displayProducts(page = 1) {
     const container = document.getElementById('products-container');
     container.innerHTML = ''; // Clear existing products
     
-    // Calculate start and end indices
+    
     const startIndex = (page - 1) * productsPerPage;
     const endIndex = startIndex + productsPerPage;
     const paginatedProducts = filteredProducts.slice(startIndex, endIndex);
     
     // Get viewport width to determine products per row
     const viewportWidth = window.innerWidth;
-    const productsPerRow = viewportWidth < 768 ? 2 : 4; // 2 products per row on mobile, 4 on desktop
-    
+    const productsPerRow = viewportWidth < 768 ? 1 : 4; // 2 products per row on mobile, 4 on desktop
+
     // Create rows of products based on viewport width
     for (let i = 0; i < paginatedProducts.length; i += productsPerRow) {
         const rowProducts = paginatedProducts.slice(i, i + productsPerRow);
@@ -243,6 +243,8 @@ function displayProducts(page = 1) {
     // Update pagination
     updatePagination();
 }
+
+
 
 function handleResponsiveLayout() {
     const viewportWidth = window.innerWidth;
