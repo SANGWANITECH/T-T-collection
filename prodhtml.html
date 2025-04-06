@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
 
     <link rel="stylesheet" href="prodstyle.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
@@ -16,29 +18,48 @@
 
 <body>
     <nav class="nav1">
+
         <label class="label1">
             <img src="icons/Logo.png" alt="logo">
         </label>
         <ul class="ul1">
-            <li class="home"> <a href="index.html">Home</a></li>
+            <li class="home">Home</li>
+
             <li> <a href="prodhtml.html">Products</a></li>
             <li>Contact</li>
         </ul>
+        <div class="menu-icon" onclick="toggleMenu()">
+            ☰
+        </div>
 
         <ul class="ul2">
+
             <div class="search-container">
                 <input type="text" placeholder="Search..." id="search-input">
                 <button id="search-btn">
-                    <img src="icons/search.png" alt="Search">
-                </button>
+                        <img src="icons/search.png" alt="Search">
+                    </button>
             </div>
+
             <button class="cart-btn">
-                <img src="icons/cart.png" alt="Cart">
-                <span class="cart-count">0</span>
-            </button>
+                    <img src="icons/cart.png" alt="Cart">
+                    <span class="cart-count">0</span>
+                </button>
+
             <button class="button1" id="loginBtn">Admin</button>
+
         </ul>
+
+
     </nav>
+    <ul class="mobile-menu">
+        <li>Home</li>
+        <li>Products</li>
+        <li>Contact</li>
+
+
+        <li>Login</li>
+    </ul>
     <br> <br>
     <div class="direct">
         <p><a href="index.html">Home  /</a> </p>
@@ -161,6 +182,46 @@
         </div>
     </div>
 
+
+
+<script>
+    function toggleMenu() {
+        document.querySelector('.mobile-menu').classList.toggle('show');
+    }
+    
+    
+    document.addEventListener('click', function(event) {
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const menuIcon = document.querySelector('.menu-icon');
+        
+        if (!event.target.closest('.mobile-menu') && !event.target.closest('.menu-icon') && mobileMenu.classList.contains('show')) {
+            mobileMenu.classList.remove('show');
+        }
+    });
+    
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        const filterTitle = document.querySelector('.fi');
+        const filterSection = document.querySelector('.filter section');
+        
+        if (window.innerWidth <= 768) {
+            filterSection.style.display = 'none';
+            
+            filterTitle.addEventListener('click', function() {
+                if (filterSection.style.display === 'none') {
+                    filterSection.style.display = 'block';
+                    filterTitle.textContent = 'filter ▲';
+                } else {
+                    filterSection.style.display = 'none';
+                    filterTitle.textContent = 'filter ▼';
+                }
+            });
+            
+
+            filterTitle.textContent = 'filter ▼';
+        }
+    });
+</script>
    <script src="script.js"></script>
 </body>
 </html>

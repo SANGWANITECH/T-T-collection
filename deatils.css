@@ -180,6 +180,45 @@ body {
     text-decoration: none;
 }
 
+.menu-icon {
+    display: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+}
+
+.mobile-menu {
+    display: none;
+    list-style: none;
+    background: white;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 200px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    z-index: 100;
+}
+
+.mobile-menu li {
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.mobile-menu li:last-child {
+    border-bottom: none;
+}
+
+.mobile-menu li:hover {
+    background-color: #f5f5f5;
+    color: #53519A;
+}
+
+.mobile-menu.show {
+    display: block;
+}
 
 
 .direct p a {
@@ -659,3 +698,167 @@ body {
     border-radius: 6px;
 }
 
+
+@media (max-width: 992px) {
+    .ul1 {
+        gap: 20px;
+        margin-left: 3%;
+    }
+    .search-container {
+        width: 140px;
+    }
+    #search-input {
+        width: 100px;
+    }
+}
+
+@media (max-width: 768px) { 
+    .nav1 {
+        padding: 15px 20px;
+    }
+    .ul1, .ul2 {
+        display: none; 
+    }
+    
+    .menu-icon {
+        display: block; 
+        cursor: pointer;
+    }
+    .label1 img {
+        height: 35px;
+    }
+    .hero, .herotext, .button2, .youtube {
+        margin-left: 20px;
+        max-width: 85%;
+    }
+    .button2 {
+        width: 180px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Navigation and general layout */
+    .nav1 {
+        padding: 10px;
+    }
+    
+    .label1 img {
+        margin-left: 0;
+    }
+    
+    .direct {
+        margin-left: 5%;
+        width: 90%;
+        margin-top: 80px;
+        height: auto;
+        padding: 8px;
+    }
+    .direct p{
+        font-size: 85%;
+    }
+    
+    /* Product zoom section */
+    .zoom {
+        flex-direction: column;
+        height: auto;
+        align-items: center;
+    }
+    
+    .first {
+        width: 90%;
+        margin: 5%;
+    }
+    
+    .zoom img.left, .zoom img.right {
+        width: 10%;
+        height: auto;
+        margin: 10px;
+    }
+    
+    .left {
+        margin-left: 0;
+    }
+    
+    .pic img {
+        width: 100%;
+        height: auto;
+    }
+    
+    /* Product details section */
+    .next {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .div1 {
+        width: 90%;
+        height: auto;
+        margin: 5%;
+    }
+    
+    .div1 b {
+        margin-left: 5%;
+    }
+    
+    .pay {
+        flex-direction: column;
+    }
+    
+    .add, .pay2 {
+        width: 80%;
+        margin: 10px auto;
+    }
+    
+    .div2 {
+        width: 90%;
+        margin: 5%;
+        height: 40vh;
+        margin-top: 20px;
+    }
+    
+    /* Footer */
+    .footer {
+        height: auto;
+    }
+    
+    .mmm {
+        flex-direction: column;
+        margin-left: 5%;
+        width: 90%;
+    }
+    
+    .mmm div {
+        width: 100%;
+        height: auto;
+        margin-bottom: 15px;
+    }
+    
+    /* Chat popup */
+    .chat-popup {
+        right: 5%;
+        width: 90%;
+        bottom: 10%;
+    }
+    .user button{
+        width: 30%;
+        border-radius: 10px;
+        height: 5vh;
+    }
+    .user img{
+        width: 55%;
+        height: 5vh;
+    }
+}
+
+/* Enhanced styles for arrows */
+.left, .right {
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.left:hover, .right:hover {
+    background-color: #4a4890;
+    transform: scale(1.1);
+}
