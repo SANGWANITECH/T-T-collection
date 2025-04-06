@@ -1182,7 +1182,7 @@ display: none;
         max-width: 90%;
         margin-top: -7px;
         padding: 5px;
-        padding-bottom: 3%;
+        padding-bottom: 1px;
         margin-left: 5.5%;
     }
     
@@ -1190,7 +1190,8 @@ display: none;
         
         max-width: 100%;
         padding: 5px;
-        padding-bottom: 1px;
+        margin-bottom: -3px;
+        padding-top: 1px;
 
         
     }
@@ -1214,6 +1215,7 @@ display: none;
     .button2{
        width: 66%;
        margin-left: 7%;
+       margin-top: -2px;
        
     }
     .now{
