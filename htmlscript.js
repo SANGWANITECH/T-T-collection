@@ -1,33 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
-
-    // Chat Popup
-    const chatBtn = document.getElementById("chat2");
-    const chatPopup = document.getElementById("chat-popup");
-    const closeChat = document.getElementById("close-chat");
-    const sendMessage = document.getElementById("send-message");
-
-    if (chatBtn && chatPopup && closeChat) {
-        chatBtn.addEventListener("click", function () {
-            chatPopup.style.display = "block";
-        });
-
-        closeChat.addEventListener("click", function () {
-            chatPopup.style.display = "none";
-        });
-
-        if (sendMessage) {
-            sendMessage.addEventListener("click", function () {
-                let message = document.getElementById("chat-input").value;
-                if (message.trim() !== "") {
-                    let chatMessages = document.getElementById("chat-messages");
-                    let userMsg = document.createElement("p");
-                    userMsg.textContent = "You: " + message;
-                    chatMessages.appendChild(userMsg);
-                    document.getElementById("chat-input").value = "";
-                }
-            });
+    document.getElementById("vhat2").addEventListener("click", function () {
+        if (window.chatbase) {
+          window.chatbase("toggleChat");
         }
-    }
+      });
+    
+    
 
     // Login Modal
     const loginBtn = document.getElementById("loginBtn");
@@ -572,3 +550,6 @@ function toggleMenu() {
         mobileMenu.classList.toggle('show');
     }
 }
+
+
+ 

@@ -1127,6 +1127,16 @@ display: none;
         margin-left: 15px;
         max-width: 90%;
     }
+    .gotozoom{
+        height: 20vh;
+    }
+    .footer hr {
+        margin-top: -5px;
+    }
+    .last{
+       padding-bottom: 10px;
+    }
+    
     .button2 {
         width: 100%;
         text-align: center;
@@ -1156,7 +1166,7 @@ display: none;
  
     .div1 {
         width: 100%;
-        height: 70%;
+        height: fit-content;
         background-image: url(products/back.png);
         background-position: center;
         background-size: cover;
@@ -1167,7 +1177,14 @@ display: none;
         align-items: flex-start;
         
     }
-    
+    .doo img {
+    width: 15%;
+    height: 15%;
+    padding: 3px;
+    margin-left: 20px;
+    margin-top: 35px;
+}
+
     .do {
         padding: 10px;
         text-align: center;
@@ -1193,9 +1210,9 @@ display: none;
     .herotext {
         
         max-width: 100%;
-        padding: 5px;
-        margin-bottom: -3px;
-        padding-top: 1px;
+        padding: 10px;
+        margin-bottom: 3px;
+        padding-top: 3px;
 
         
     }
@@ -1433,8 +1450,8 @@ display: none;
         border-bottom: 1px solid #eee;
     }
     .toview{
-        width: 100px;
-        height: 35px;
+        width: 130px;
+        height: 43px;
         background-color: #53519A;
         color: white;
         border-radius: 10px;
