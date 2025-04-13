@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
     
-    
 
     // Login Modal
     const loginBtn = document.getElementById("loginBtn");
@@ -28,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Search
+
     const searchBtn = document.getElementById("search-btn");
     if (searchBtn) {
         searchBtn.addEventListener("click", function () {
@@ -63,15 +62,13 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Mobile Menu Toggle
     function toggleMenu() {
         const mobileMenu = document.querySelector(".mobile-menu");
         if (mobileMenu) {
             mobileMenu.classList.toggle("show");
         }
     }
-
-    // "See More" Section
+   
     const see = document.getElementById("see");
     const say2 = document.getElementById("say2");
 
@@ -89,7 +86,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-// Product data array
 const products = [
     {
         id: 1,
@@ -553,3 +549,4 @@ function toggleMenu() {
 
 
  
+
